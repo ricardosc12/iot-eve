@@ -442,7 +442,7 @@ return inner.trim()
                 let search_host = host
                 try{
                   if(search_host.includes("ngrok")){
-                    search_host = "https://"+search_host
+                    search_host = "http://"+search_host
                   }
                 }catch{}
                 let def_host = search_host || HOST
