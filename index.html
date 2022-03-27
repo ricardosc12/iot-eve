@@ -439,8 +439,7 @@ return inner.trim()
 
           function setData(host){
             return new Promise ((retr)=>{
-                let def_host = "https://1a42-170-79-55-83.ngrok.io"
-                // def_host = def_host.replace('http','https')
+                console.log(host, HOST)
                 fetch(def_host+'/getData',{
                   method: 'GET'
                 }).then(resolve=>{
