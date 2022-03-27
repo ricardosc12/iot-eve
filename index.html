@@ -65,6 +65,21 @@ return inner.trim()
 }
 
     </script>
+    <script>
+      function notify(text){
+          iziToast.warning({
+                title: 'Atenção',
+                message: text,
+                position: 'bottomRight',
+          });
+        }
+        function okNoify(){
+          iziToast.success({
+              title: 'Tudo certo !',
+              message: 'Ambiente estável',
+          });
+        }
+    </script>
   </head>
   <body>
     <main>
@@ -250,22 +265,6 @@ return inner.trim()
           BARS = {}
         })    
       </script>
-      <script>
-        function notify(text){
-          iziToast.warning({
-                title: 'Atenção',
-                message: text,
-                position: 'bottomRight',
-          });
-        }
-        function okNoify(){
-          iziToast.success({
-              title: 'Tudo certo !',
-              message: 'Ambiente estável',
-          });
-        }
-      </script>
-
       <script>
         function iniciateBar(div,val){
           let temp_graph = document.getElementById(div)
