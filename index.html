@@ -440,6 +440,7 @@ return inner.trim()
           function setData(host){
             return new Promise ((retr)=>{
                 console.log(host, HOST)
+                return;
                 fetch(def_host+'/getData',{
                   method: 'GET'
                 }).then(resolve=>{
