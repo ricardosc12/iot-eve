@@ -499,11 +499,18 @@ return inner.trim()
                         })
                     }
                     else{
-                      DATA_RECOVER.map(data=>{
+                      try{
+                        DATA_RECOVER.map(data=>{
                           MOTOR.push(data.m)
                           BARS[data.n].t.animate(data.t/100)
                           BARS[data.n].h.animate(data.h/100)
                         })
+                      }
+                      catch{
+                        DATA_RECOVER = false        
+                        BARS = {}
+                      }
+
                     }
                     if(MOTOR.includes(true) && !NOTIF){
                       notify("Ambiente inadequado, regulando...")

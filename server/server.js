@@ -40,7 +40,9 @@ getTunnel().then(url=>{
     generateQRCode(link)
     const server = http.createServer(requestListener);
     server.listen(port, host, () => {
-        console.log(`[*] Aplicação iniciada: ${qr_id} --> http://${host}:${port}`)
+        // console.log(`[*] Aplicação iniciada ID: ${qr_id} --> http://${host}:${port}`)
+        console.log(`[*] Aplicação iniciada`)
+        console.log(`[*] ID: ${qr_id}`)
     });
 })
 
