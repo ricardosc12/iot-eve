@@ -200,7 +200,7 @@ return inner.trim()
 
           function setData(host){
             return new Promise ((retr)=>{
-                fetch("https://1a42-170-79-55-83.ngrok.io"+'/getData',{
+                fetch((host || HOST)+'/getData',{
                   method: 'GET'
                 }).then(resolve=>{
                 if(resolve.status!=200){
