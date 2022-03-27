@@ -513,8 +513,13 @@ return inner.trim()
                   })
                 }
               }).catch(erro=>{
-                console.log("ERRRO")
-                document.getElementsByClassName('reset')[0].click()
+                HOST = ''
+                window.sessionStorage.removeItem('host')
+                root.innerHTML = pageHome()
+                button = document.getElementsByClassName('button')[0]
+                button.addEventListener('click',dataOnClick)
+                DATA_RECOVER = false        
+                BARS = {}
               })        
             })    
         }
