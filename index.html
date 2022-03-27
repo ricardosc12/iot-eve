@@ -440,12 +440,10 @@ return inner.trim()
           function setData(host){
             return new Promise ((retr)=>{
                 let def_host = host || HOST
-                if(!def_host.includes("ngrok")) return
+                if(!def_host.includes("ngrok")) return;
                 else{
                   console.log(def_host)
                 }
-                
-
                 return;
                 fetch(def_host+'/getData',{
                   method: 'GET'
