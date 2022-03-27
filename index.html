@@ -326,6 +326,12 @@ return inner.trim()
               message: 'Ambiente estável',
           });
         }
+        function errorNoify(){
+          iziToast.error({
+              title: 'Error !',
+              message: 'Não foi possível conectar ao servidor !',
+          });
+        }
     </script>
   </head>
   <body>
@@ -520,6 +526,9 @@ return inner.trim()
                 button.addEventListener('click',dataOnClick)
                 DATA_RECOVER = false        
                 BARS = {}
+                NOTIF = false
+                NOTIF_OK = false
+                errorNoify()
               })        
             })    
         }
@@ -533,6 +542,8 @@ return inner.trim()
           button.addEventListener('click',dataOnClick)
           DATA_RECOVER = false        
           BARS = {}
+          NOTIF = false
+          NOTIF_OK = false
         })    
       </script>
       <script>
