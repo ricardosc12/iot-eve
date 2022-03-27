@@ -402,7 +402,7 @@ return inner.trim()
       <script>
 
 
-          let HOST = 'null'
+          let HOST = ''
           let save_host = window.sessionStorage.getItem('host')
           const ngrok = window.location.search.replace('?','')
           if(!save_host){setData(ngrok).then(resp=>{
@@ -439,7 +439,13 @@ return inner.trim()
 
           function setData(host){
             return new Promise ((retr)=>{
-                console.log(host, HOST)
+                let def_host = host || HOST
+                if(!def_host.includes("ngrok")) return
+                else{
+                  console.log(def_host)
+                }
+                
+
                 return;
                 fetch(def_host+'/getData',{
                   method: 'GET'
