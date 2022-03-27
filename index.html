@@ -401,6 +401,11 @@ return inner.trim()
 
       <script>
 
+        function iniciate(){
+          setInterval(() => {
+            setData()
+          }, 1000);
+        }
 
           let HOST = ''
           let save_host = window.sessionStorage.getItem('host')
@@ -409,6 +414,7 @@ return inner.trim()
             if(resp) {
               HOST = ngrok
               window.sessionStorage.setItem('host',ngrok)
+              iniciate()
             }
           })}
           else{
@@ -423,6 +429,7 @@ return inner.trim()
                 button.innerHTML = "Conectar"
                 if(resolve) {
                   HOST = value
+                  iniciate()
                   window.sessionStorage.setItem('host',value)
                 }
             })
@@ -440,9 +447,17 @@ return inner.trim()
           function setData(host){
             return new Promise ((retr)=>{
                 let def_host = host || HOST
+                
                 if(def_host){
-                  def_host = "https://"+def_host
-                  fetch(def_host+'/getData',{
+                   def_host = "https://"+def_host
+                   console.log(def_host)
+                }
+                else{
+                  retr(false)
+                  return;
+                }
+                
+                fetch(def_host+'/getData',{
                   method: 'GET'
                 }).then(resolve=>{
                 if(resolve.status!=200){
@@ -495,18 +510,9 @@ return inner.trim()
                   })
                 }
               })          
-                }
-                else{
-                  retr(false)
-                }
-               
-                
             })    
         }
-        setInterval(() => {
-          setData()
-        }, 1000);
-        setData()
+
 
         document.getElementsByClassName('reset')[0].addEventListener('click',()=>{
           HOST = ''
