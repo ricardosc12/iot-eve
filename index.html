@@ -296,7 +296,7 @@ main {
                 <div style="color:white" class="temp_text">Umidade</div>
               </div>
               <div class="col">
-                <div class="title_info">${l}</div>
+                <div id="luminosidade_${n}" class="title_info">${l}</div>
               </div>
             </div>
         </div>
@@ -504,6 +504,7 @@ return inner.trim()
                           MOTOR.push(data.m)
                           BARS[data.n].t.animate(data.t/100)
                           BARS[data.n].h.animate(data.h/100)
+                          document.getElementById("luminosidade_"+data.n).innerHTML = data.l
                         })
                       }
                       catch{
