@@ -200,7 +200,9 @@ return inner.trim()
 
           function setData(host){
             return new Promise ((retr)=>{
-                fetch((host || HOST)+'/getData',{
+                let def_host = (host || HOST)
+                def_host = def_host.replace('http','https')
+                fetch(def_host+'/getData',{
                   method: 'GET'
                 }).then(resolve=>{
                 if(resolve.status!=200){
