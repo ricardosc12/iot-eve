@@ -528,7 +528,9 @@ return inner.trim()
                 BARS = {}
                 NOTIF = false
                 NOTIF_OK = false
-                errorNoify()
+                setTimeout(() => {
+                  errorNoify()
+                }, 2000);
               })        
             })    
         }
