@@ -442,9 +442,9 @@ return inner.trim()
                 let def_host = host || HOST
                 if(!def_host.includes("ngrok")) return;
                 else{
-                  console.log(def_host)
+                  def_host = def_host.replace('http','https')
                 }
-                return;
+                console.log(def_host)
                 fetch(def_host+'/getData',{
                   method: 'GET'
                 }).then(resolve=>{
