@@ -441,7 +441,7 @@ return inner.trim()
             return new Promise ((retr)=>{
                 let def_host = host || HOST
                 console.log(def_host)
-                resolve(false)
+                retr(false)
                 fetch(def_host+'/getData',{
                   method: 'GET'
                 }).then(resolve=>{
