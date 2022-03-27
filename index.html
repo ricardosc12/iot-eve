@@ -442,6 +442,7 @@ return inner.trim()
                 let def_host = host || HOST
                 console.log(def_host)
                 retr(false)
+                return
                 fetch(def_host+'/getData',{
                   method: 'GET'
                 }).then(resolve=>{
