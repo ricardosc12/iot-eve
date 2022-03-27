@@ -461,6 +461,7 @@ return inner.trim()
                   method: 'GET'
                 }).then(resolve=>{
                 if(resolve.status!=200){
+                  document.getElementsByClassName('reset')[0].click()
                   retr(false)
                 }
                 else{
