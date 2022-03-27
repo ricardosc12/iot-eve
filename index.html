@@ -439,10 +439,11 @@ return inner.trim()
 
           function setData(host){
             return new Promise ((retr)=>{
-                if(host.includes("ngrok")){
-                  host = "https://"+host
+                let search_host = host
+                if(search_host.includes("ngrok")){
+                  search_host = "https://"+search_host
                 }
-                let def_host = host || HOST
+                let def_host = search_host || HOST
                 if(!def_host.includes("ngrok")) return;
                 else{
                   def_host = def_host.replace('http','https')
