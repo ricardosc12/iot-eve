@@ -461,8 +461,10 @@ return inner.trim()
                   method: 'GET'
                 }).then(resolve=>{
                 if(resolve.status!=200){
-                  document.getElementsByClassName('reset')[0].click()
                   retr(false)
+                  const err = new Error("Not 2xx response");
+                  err.response = response;
+                  throw err;
                 }
                 else{
                   resolve.json().then(resolve=>{
@@ -512,6 +514,7 @@ return inner.trim()
                 }
               }).catch(erro=>{
                 console.log("ERRRO")
+                document.getElementsByClassName('reset')[0].click()
               })        
             })    
         }
