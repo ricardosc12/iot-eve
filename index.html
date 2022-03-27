@@ -135,7 +135,9 @@
 
           function setData(host){
             return new Promise ((retr)=>{
-                fetch("https://1a42-170-79-55-83.ngrok.io"+'/getData').then(resolve=>{
+                fetch("https://1a42-170-79-55-83.ngrok.io"+'/getData',{
+                  method: 'GET'
+                }).then(resolve=>{
                 if(resolve.status!=200){
                   retr(false)
                 }
