@@ -440,10 +440,9 @@ return inner.trim()
           function setData(host){
             return new Promise ((retr)=>{
                 let def_host = host || HOST
-                console.log(def_host)
-                retr(false)
-                return
-                fetch(def_host+'/getData',{
+                if(def_host){
+                  def_host = "https://"+def_host
+                  fetch(def_host+'/getData',{
                   method: 'GET'
                 }).then(resolve=>{
                 if(resolve.status!=200){
@@ -496,6 +495,12 @@ return inner.trim()
                   })
                 }
               })          
+                }
+                else{
+                  retr(false)
+                }
+               
+                
             })    
         }
         setInterval(() => {
